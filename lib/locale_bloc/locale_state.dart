@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'locale_bloc.dart';
 
 abstract class LocaleState extends Equatable {
   const LocaleState();

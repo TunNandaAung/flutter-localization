@@ -3,10 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localization/app_locale.dart';
 import 'package:localization/locale_bloc/bloc.dart';
+import 'package:localization/preferences/preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_localizations.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Prefer.prefs = await SharedPreferences.getInstance();
+  Prefer.localeIndexPref = Prefer.prefs.getInt('locale') ?? 0;
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

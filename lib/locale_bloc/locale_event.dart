@@ -1,7 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
-
-import '../app_locale.dart';
+part of 'locale_bloc.dart';
 
 abstract class LocaleEvent extends Equatable {
   const LocaleEvent();
