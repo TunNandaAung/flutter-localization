@@ -11,8 +11,7 @@ part 'locale_event.dart';
 part 'locale_state.dart';
 
 class LocaleBloc extends Bloc<LocaleEvent, AppLocale> {
-  @override
-  AppLocale get initialState => AppLocale.values[Prefer.localeIndexPref];
+  LocaleBloc() : super(AppLocale.values[Prefer.localeIndexPref]);
 
   @override
   Stream<AppLocale> mapEventToState(
