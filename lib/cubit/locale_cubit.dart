@@ -9,7 +9,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LocaleCubit extends Cubit<AppLocale> {
   LocaleCubit() : super(AppLocale.values[Prefer.localeIndexPref]);
 
-  Future<void> changeLocale(BuildContext context, AppLocale locale) async {
+  Future<void> changeLocale(
+    AppLocale locale,
+    BuildContext context,
+  ) async {
     emit(locale);
 
     Prefer.prefs = await SharedPreferences.getInstance();

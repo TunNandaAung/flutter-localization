@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localization/app_locale.dart';
 import 'package:localization/cubit/locale_cubit.dart';
-import 'package:localization/locale_bloc/bloc.dart';
 import 'package:localization/preferences/preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -50,23 +49,6 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
         ],
         locale: appLocaleData[appLocale],
-        // Returns a locale which will be used by the app
-        // localeResolutionCallback: (locale, supportedLocales) {
-        // Check if the current device locale is supported
-        // for (var supportedLocale in supportedLocales) {
-        //   if (supportedLocale.languageCode == locale.languageCode &&
-        //       supportedLocale.countryCode == locale.countryCode) {
-        //     return supportedLocale;
-        //   }
-        // }
-        // // If the locale of the device is not supported, use the first one
-        // // from the list (English, in this case).
-        // return supportedLocales.first;
-
-        // If the locale of the device is not supported, use the first one
-        // from the list (English, in this case).
-        //return appLocaleData[appLocale];
-        // },
         home: MyHomePage(),
       );
     });
@@ -88,8 +70,11 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   FlatButton(
                     onPressed: () {
-                      BlocProvider.of<LocaleBloc>(context)
-                          .add(LocaleChanged(AppLocale.MY, context));
+                      // BlocProvider.of<LocaleBloc>(context)
+                      //     .add(LocaleChanged(AppLocale.MY, context));
+                      context
+                          .read<LocaleCubit>()
+                          .changeLocale(AppLocale.MY, context);
                     },
                     color: Colors.black.withOpacity(.80),
                     shape: RoundedRectangleBorder(
@@ -106,8 +91,11 @@ class MyHomePage extends StatelessWidget {
                   ),
                   FlatButton(
                     onPressed: () {
-                      BlocProvider.of<LocaleBloc>(context)
-                          .add(LocaleChanged(AppLocale.EN, context));
+                      // BlocProvider.of<LocaleBloc>(context)
+                      //     .add(LocaleChanged(AppLocale.EN, context));
+                      context
+                          .read<LocaleCubit>()
+                          .changeLocale(AppLocale.EN, context);
                     },
                     color: Colors.black.withOpacity(.80),
                     shape: RoundedRectangleBorder(
