@@ -19,7 +19,6 @@ class LocaleBloc extends Bloc<LocaleEvent, AppLocale> {
   ) async* {
     if (event is LocaleChanged) {
       yield event.locale;
-      print(event.locale.index);
 
       Prefer.prefs = await SharedPreferences.getInstance();
       Prefer.prefs.setInt('locale', event.locale.index);

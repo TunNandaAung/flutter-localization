@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localization/app_locale.dart';
+import 'package:localization/cubit/locale_cubit.dart';
 import 'package:localization/locale_bloc/bloc.dart';
 import 'package:localization/preferences/preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,13 +22,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LocaleBloc()..add(AppStarted(context)),
+      create: (context) => LocaleCubit(),
       child: _buildWithLocale(context),
     );
   }
 
   Widget _buildWithLocale(BuildContext context) {
-    return BlocBuilder<LocaleBloc, AppLocale>(builder: (context, appLocale) {
+    return BlocBuilder<LocaleCubit, AppLocale>(builder: (context, appLocale) {
       return MaterialApp(
         title: 'Flutter Localizations',
         debugShowCheckedModeBanner: false,
