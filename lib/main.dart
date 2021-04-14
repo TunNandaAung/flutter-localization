@@ -68,7 +68,7 @@ class MyHomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     onPressed: () {
                       // BlocProvider.of<LocaleBloc>(context)
                       //     .add(LocaleChanged(AppLocale.MY, context));
@@ -76,11 +76,14 @@ class MyHomePage extends StatelessWidget {
                           .read<LocaleCubit>()
                           .changeLocale(AppLocale.MY, context);
                     },
-                    color: Colors.black.withOpacity(.80),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0)),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.black.withOpacity(.80),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text('Myanmar',
                           style:
                               TextStyle(fontSize: 15.0, color: Colors.white)),
@@ -89,7 +92,7 @@ class MyHomePage extends StatelessWidget {
                   SizedBox(
                     width: 20.0,
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: () {
                       // BlocProvider.of<LocaleBloc>(context)
                       //     .add(LocaleChanged(AppLocale.EN, context));
@@ -97,11 +100,14 @@ class MyHomePage extends StatelessWidget {
                           .read<LocaleCubit>()
                           .changeLocale(AppLocale.EN, context);
                     },
-                    color: Colors.black.withOpacity(.80),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0)),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.black.withOpacity(.80),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text('English',
                           style:
                               TextStyle(fontSize: 15.0, color: Colors.white)),
