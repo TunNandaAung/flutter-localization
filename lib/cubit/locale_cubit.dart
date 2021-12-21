@@ -16,9 +16,9 @@ class LocaleCubit extends Cubit<AppLocale> {
     emit(locale);
 
     Prefer.prefs = await SharedPreferences.getInstance();
-    Prefer.prefs.setInt('locale', locale.index);
+    Prefer.prefs!.setInt('locale', locale.index);
     Prefer.localeIndexPref = locale.index;
 
-    AppLocalizations.of(context).load(appLocaleData[locale]);
+    AppLocalizations.of(context)!.load(appLocaleData[locale]);
   }
 }

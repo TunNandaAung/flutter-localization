@@ -12,7 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   Prefer.prefs = await SharedPreferences.getInstance();
-  Prefer.localeIndexPref = Prefer.prefs.getInt('locale') ?? 0;
+  Prefer.localeIndexPref = Prefer.prefs!.getInt('locale') ?? 0;
 
   runApp(MyApp());
 }
@@ -119,7 +119,7 @@ class MyHomePage extends StatelessWidget {
                 height: 10.0,
               ),
               Text(
-                AppLocalizations.of(context).translate('first_string'),
+                AppLocalizations.of(context)!.translate('first_string'),
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
