@@ -14,10 +14,12 @@ Future<void> main() async {
   Prefer.prefs = await SharedPreferences.getInstance();
   Prefer.localeIndexPref = Prefer.prefs!.getInt('locale') ?? 0;
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -35,12 +37,12 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // List all of the app's supported locales here
-        supportedLocales: [
+        supportedLocales: const [
           Locale('en', 'US'),
           Locale('my', 'MY'),
         ],
         // These delegates make sure that the localization data for the proper language is loaded
-        localizationsDelegates: [
+        localizationsDelegates: const [
           // A class which loads the translations from JSON files
           AppLocalizations.delegate,
           // Built-in localization of basic text for Material widgets
@@ -51,13 +53,15 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
         ],
         locale: appLocaleData[appLocale],
-        home: MyHomePage(),
+        home: const MyHomePage(),
       );
     });
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                       //     .add(LocaleChanged(AppLocale.MY, context));
                       context
                           .read<LocaleCubit>()
-                          .changeLocale(AppLocale.MY, context);
+                          .changeLocale(AppLocale.my, context);
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black.withOpacity(.80),
@@ -84,14 +88,14 @@ class MyHomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text('Myanmar',
                           style:
                               TextStyle(fontSize: 15.0, color: Colors.white)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20.0,
                   ),
                   TextButton(
@@ -100,7 +104,7 @@ class MyHomePage extends StatelessWidget {
                       //     .add(LocaleChanged(AppLocale.EN, context));
                       context
                           .read<LocaleCubit>()
-                          .changeLocale(AppLocale.EN, context);
+                          .changeLocale(AppLocale.en, context);
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black.withOpacity(.80),
@@ -108,8 +112,8 @@ class MyHomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text('English',
                           style:
                               TextStyle(fontSize: 15.0, color: Colors.white)),
@@ -117,22 +121,22 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               Text(
                 AppLocalizations.of(context)!.translate('first_string'),
-                style: TextStyle(fontSize: 25),
+                style: const TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               // Text(
               //   AppLocalizations.of(context).translate('second_string'),
               //   style: TextStyle(fontSize: 25),
               //   textAlign: TextAlign.center,
               // ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'This will not be translated.',
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,

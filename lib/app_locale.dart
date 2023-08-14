@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-enum AppLocale { EN, MY }
+enum AppLocale { en, my }
 
 final appLocaleData = {
-  AppLocale.EN: Locale('en', 'US'),
-  AppLocale.MY: Locale('my', 'MY')
+  AppLocale.en: const Locale('en', 'US'),
+  AppLocale.my: const Locale('my', 'MY')
 };

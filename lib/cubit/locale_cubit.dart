@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/app_locale.dart';
 import 'package:localization/app_localizations.dart';
 import 'package:localization/preferences/preferences.dart';
@@ -19,6 +19,6 @@ class LocaleCubit extends Cubit<AppLocale> {
     Prefer.prefs!.setInt('locale', locale.index);
     Prefer.localeIndexPref = locale.index;
 
-    AppLocalizations.of(context)!.load(appLocaleData[locale]);
+    AppLocalizations.delegate.load(appLocaleData[locale] as Locale);
   }
 }
