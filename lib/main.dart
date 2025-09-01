@@ -83,7 +83,7 @@ class MyHomePage extends StatelessWidget {
                           .changeLocale(AppLocale.my, context);
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.black.withOpacity(.80),
+                      backgroundColor: Colors.black.withValues(alpha: .80),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
                       ),
@@ -107,7 +107,7 @@ class MyHomePage extends StatelessWidget {
                           .changeLocale(AppLocale.en, context);
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.black.withOpacity(.80),
+                      backgroundColor: Colors.black.withValues(alpha: .80),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
                       ),
